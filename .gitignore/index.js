@@ -15,12 +15,6 @@ bot.on("ready", function () {
     console.log("Connecté");
 });
 
-var randomMessage = [
-    "Super ta co.",
-    "La meilleur co c'est la mienne",
-    "La meilleur co c sur le serveur ZLGames :D",
-    "Ta pas une bonne co :D",
-];
 
 var zeltiumRandomMessage = [
     "Zeltium, c'est un bogosse !",
@@ -57,10 +51,6 @@ bot.on('message', function(message) {
 
         if(message.content === 'XeCrafT') {
             message.channel.sendMessage("On ne juge pas mon créateur! :o")
-        }
-
-        if(message.content === 'ZLGames') {
-            message.channel.sendMessage("Best serveur FR")
         }
         
         if(message.content === 'sa va') {

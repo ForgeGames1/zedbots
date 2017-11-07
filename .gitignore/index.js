@@ -264,12 +264,7 @@ bot.on("message", function(message) {
             break;;
 
        case "twitter":
-       message.reply('Voici le compte twitter du jeu: https://twitter.com/ZeltiumLeS');
-       message.delete();
-       break;
-
-       case "zlgames":
-       message.channel.sendMessage(zeltiumRandomMessage[Math.floor(Math.random() * zeltiumRandomMessage.length)]);
+       message.reply('Voici le compte twitter de Zeltium: https://twitter.com/ZeltiumLeS');
        message.delete();
        break;
        

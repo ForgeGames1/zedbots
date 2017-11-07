@@ -1,0 +1,18 @@
+{
+  "name": "zedbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "à"
+  },
+  "author": "XeCrafT",
+  "license": "ISC",
+  "dependencies": {
+    "deku-youtube-subscribe-button": "^1.1.2",
+    "discord.js": "^11.2.1",
+    "ffmpeg": "0.0.4",
+    "opusscript": "0.0.4",
+    "ytdl-core": "file:node_modules/ytdl-core"
+  }
+}

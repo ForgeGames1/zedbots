@@ -9,10 +9,7 @@
   "author": "XeCrafT",
   "license": "ISC",
   "dependencies": {
-    "deku-youtube-subscribe-button": "^1.1.2",
     "discord.js": "^11.2.1",
-    "ffmpeg": "0.0.4",
-    "opusscript": "0.0.4",
-    "ytdl-core": "file:node_modules/ytdl-core"
+    "ytdl-core": "^0.18.1"
   }
 }

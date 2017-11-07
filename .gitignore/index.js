@@ -46,7 +46,6 @@ bot.on('message', function(message) {
 
         if(message.content === 'Zeltium') {
             message.channel.sendMessage(zeltiumRandomMessage[Math.floor(Math.random() * zeltiumRandomMessage.length)]);
-            message.delete();
         }
 
         if(message.content === 'XeCrafT') {

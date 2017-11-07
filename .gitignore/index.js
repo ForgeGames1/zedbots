@@ -150,7 +150,7 @@ bot.on("message", function(message) {
             
             case "help":
             var embed = new Discord.RichEmbed()
-            .addField("/ban", "Cette commande permet de bannir un utilisateur ! Pour l'utiliser, faites /.ban @(utilisateur)")
+            .addField(".ban", "Cette commande permet de bannir un utilisateur ! Pour l'utiliser, faites /.ban @(utilisateur)")
                 .addField(".kick", "Cette commande permet de kick un utilisateur ! Pour l'utiliser, faites /kick @(utilisateur)")
                 .addField(".purge", "Cette commande permet de supprimé des messages beaucoup plus rapidement ! Pour l'utiliser, faites /purge (nombredemessages)")
                 .addField(".mute", "Cette commande permet de mute un utilisateur. Pour l'utiliser, faites /mute @(utilisateur)")

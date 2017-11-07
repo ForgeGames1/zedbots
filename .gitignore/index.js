@@ -113,7 +113,7 @@ bot.on("message", function(message) {
     
     var member = message.member;
 
-    var roleJoueur= member.guild.roles.find("name", "membres")
+    var roleJoueur= member.guild.roles.find("name", "Membres")
     
     var roleMute = member.guild.roles.find("name", "Mute")
     

@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const TOKEN = "MzYzNjI0MzQ5MDYxNjExNTIw.DLD7Kg.rTpTI-SHkNbQdxAPIv7Z8O9gH94";
-const PREFIX = ".";
+const PREFIX = "z!";
+const EVERYONE = "@";
 
 var client = new Discord.Client();
 
@@ -10,23 +11,23 @@ var servers = {};
 
 
 bot.on("ready", function () {
-    bot.user.setGame("ZedBot's - .help")
-    bot.user.sendMessage("ZedBot's Connecté")
-    console.log("Connecté");
+    bot.user.setGame("Zelki'Bot - z!help")
+    bot.user.setUsername("Zelki'Bot")
+    console.log("Zelki<Bot - Connecté");
 });
 
 
-var zeltiumRandomMessage = [
-    "Zeltium, c'est un bogosse !",
-    "Zeltium le plus beau !",
-    "Zeltium est moins fort que mon créateur :p",
-    "Zeltium > PX",
-    "Zeltium est tro for",
-    "Zeltium cheat",
-    "Hier, j'ai ez zeltium dans la rue :o",
-    "Zeltium <3",
-    "Zeltium est c**, j'ai rien dit, c un bogosse :o",
-    "Zeltium t tro bo",
+var zelkiaxRandomMessage = [
+    "Zelkiax, c'est un bogosse !",
+    "Zelkiax le plus beau !",
+    "Zelkiax est moins fort que mon créateur :p",
+    "Zelkiax > PX",
+    "Zelkiax est tro for",
+    "Zelkiax cheat",
+    "Hier, j'ai ez Zelkiax dans la rue :o",
+    "Zelkiax <3",
+    "Zelkiax est c**, j'ai rien dit, c un bogosse :o",
+    "Zelkiax t tro bo",
 ];
 
 
@@ -35,7 +36,7 @@ bot.on('message', function(message) {
         if(message.content === 'Salut') {
             message.reply('Bonjour')
         }
-    
+
         if(message.content === 'cool le bot') {
             message.channel.sendMessage("Merci, c'est XeCrafT, mon créateur qui m'a développé ! :D")
         }
@@ -44,8 +45,9 @@ bot.on('message', function(message) {
             message.channel.sendMessage("Merci, c'est XeCrafT, mon créateur qui m'a développé ! :D")
         }
 
-        if(message.content === 'Zeltium') {
-            message.channel.sendMessage(zeltiumRandomMessage[Math.floor(Math.random() * zeltiumRandomMessage.length)]);
+        if(message.content === 'Zelkiax') {
+            message.channel.sendMessage(zelkiaxRandomMessage[Math.floor(Math.random() * zelkiaxRandomMessage.length)]);
+            message.delete();
         }
 
         if(message.content === 'XeCrafT') {
@@ -75,13 +77,18 @@ bot.on('message', function(message) {
     });
 
 bot.on("guildMemberAdd", function(member) {
-    member.guild.channels.find("name", "bienvenue").sendMessage(member.toString() + " Bienvenue sur le discord de Zeltium ! Passe un bon moment :D");
-    member.addRole(member.guild.roles.find("name", "Membres"));
+    member.guild.channels.find("name", "bienvenue").sendMessage(member.toString() + " Bienvenue sur le discord de Zelkiax ! N'hésite pas à faire la commande z!help :D");
+    member.addRole(member.guild.roles.find("name", "» ✔ Subs ✔ ●"));
 });
 
 bot.on("guildMemberRemove", function(member) {
-    member.guild.channels.find("name", "bienvenue").sendMessage(member.toString() + "A quitté le discord !");
+    member.guild.channels.find("name", "bienvenue").sendMessage(member.toString() + "A quitté le discord ! Adieu frère :c");
 });
+
+bot.on("channelCreate", function(channelCreate) {
+    channelCreate.guild.channels.find("name", "annonce-serveur").sendMessage("Nouveau salon: " + channelCreate.toString() + " !");
+});
+
 
 bot.on("message", function(message) {
     if (message.author.equals(bot.user)) return;
@@ -96,13 +103,15 @@ bot.on("message", function(message) {
 
     var reason = args.slice(1).join(" ");
 
+ //   var roleAnniv = member.guild.roles.find("name", "» 🍰 ANNIV' 🍰 ● ")
+
     var user = message.mentions.users.first();
     
     var guild = message.guild;
     
     var member = message.member;
 
-    var roleJoueur= member.guild.roles.find("name", "Membres")
+    var roleJoueur= member.guild.roles.find("name", "membres")
     
     var roleMute = member.guild.roles.find("name", "Mute")
     
@@ -149,14 +158,15 @@ bot.on("message", function(message) {
             
             case "help":
             var embed = new Discord.RichEmbed()
-            .addField(".ban", "Cette commande permet de bannir un utilisateur ! Pour l'utiliser, faites /.ban @(utilisateur)")
-                .addField(".kick", "Cette commande permet de kick un utilisateur ! Pour l'utiliser, faites /kick @(utilisateur)")
-                .addField(".purge", "Cette commande permet de supprimé des messages beaucoup plus rapidement ! Pour l'utiliser, faites /purge (nombredemessages)")
-                .addField(".mute", "Cette commande permet de mute un utilisateur. Pour l'utiliser, faites /mute @(utilisateur)")
-                .addField(".broadcast", "Cette commande permet d'afficher un message important dans un channel. Pour l'utiliser, faites /broadcast (message)")
-                .addField(".unmute", "Cette commande permet d'unmute un utilisateur. Pour l'utiliser, faites /unmute @(utilisateur)")
-                .addField(".ping", "Grâce à cette commande, tu pourras savoir ton ping !")
-                .addField(".twitter", "Vous donne le twitter de Zeltium !")
+            .addField("z!ban", "Cette commande permet de bannir un utilisateur ! Pour l'utiliser, faites z!ban @(utilisateur)")
+                .addField("z!kick", "Cette commande permet de kick un utilisateur ! Pour l'utiliser, faites z!kick @(utilisateur)")
+                .addField("z!purge", "Cette commande permet de supprimé des messages beaucoup plus rapidement ! Pour l'utiliser, faites z!purge (nombredemessages)")
+                .addField("z!mute", "Cette commande permet de mute un utilisateur. Pour l'utiliser, faites /mute @(utilisateur)")
+                .addField("z!broadcast", "Cette commande permet d'afficher un message important dans un channel. Pour l'utiliser, faites z!broadcast (message)")
+                .addField("z!unmute", "Cette commande permet d'unmute un utilisateur. Pour l'utiliser, faites z!unmute @(utilisateur)")
+                .addField("z!ping", "Grâce à cette commande, tu pourras savoir ton ping !")
+                .addField("z!twitter", "Vous donne le twitter de Zelkiax !")
+                .addField("z!instagram", "Vous donne le instagram de Zelkiax !")
                 .setColor("#01A9DB")
                 .setFooter("Idée de commande ? Proposer en MP!")
                 .setAuthor(message.author.username, message.author.avatarURL)
@@ -167,18 +177,20 @@ bot.on("message", function(message) {
             break;
             case "grade":
             var embed = new Discord.RichEmbed()
-                .addField("Fondateur", "Grade réservé aux créateur du discord,")
-                .addField("Développeur", "Grade résérvé aux développeurs du discord !")
-                .addField("Modérateur(trice)", "Grade résérvé aux modérateurs(trices) qui se charge de surveiller le tchat !")
-                .addField("Youtuber(euse)", "Youtubeur(euse) possédant **XXX** abonnés ou plus.")
-                .addField("Amis", "Grade résérvé aux amis du staff !")
-                .addField("Membres", "Grade de base, tout le monde l'a ! Même Zeltium :o !")
+                .addField("» ❗️🔰 ADMIN' 🔰 ❗️ ●", "Grade réservé aux administraueur du discord.")
+                .addField("» 🔧Grand(e)-Modo' 🔧️● ", "Personne qui se charge de garder le discord calme/respecteueux !")
+                .addField("»  📛 Modow' 🔥 ● ", "Personne qui se charge de garder le discord calme/respecteueux !")
+                .addField("» 🤖 Grand(e)-Dév' 🤖 ● ", "Personne qui à développé des trucs pour @ZELKIAX#6224 !")
+                .addField("» 🎬 YouTubeur(euse) 🎥 ● ", "Grade résérvé aux youtubeurs ayant plus de **XXX** Abonnés ! :o")
+                .addField("» 👌 Ami(e) 👌 ● ", "Grade résérvé aux amis du staff !")
+                .addField("» ✔ Subs ✔ ● ", "Votre premier grade dès que vous rentrer sur ce discord ! | Abonnés de @ZELKIAX#6224 !")
+                .addField("» 🎧BOT🎧 ●  🎥 ● ", "Grade résérvé aux bots du discord dont moi ! :p")
                 .setColor("##01A9DB")
-                .setDescription("Voici les grades disponible sur ce discord **POUR LE MOMENT**.")
+                .setDescription("Sur ce discord, il y a plein de grades ! Pour tout les goût ! Voici les grades les plus utilisé sur ce discord: ")
+               .setFooter("Et voilà ! Des questions ? N'hésiter pas à mp Zelkiax :D")
                 .setColor("#01A9DB")
                 message.delete()
-                if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("Tu ne peux exécuter cette commande.");
-            message.channel.sendEmbed(embed);
+                message.channel.sendEmbed(embed);
             break;
         case "regles":
             var embed = new Discord.RichEmbed()
@@ -186,9 +198,8 @@ bot.on("message", function(message) {
                 .setColor("#01A9DB")
                 .setFooter("Respecter les règles est importants pour respecter les autres. Vous voulez un(des) ajout(s) ? Demandez au créateur du bot(XeCrafT) en privée !")
                 .setTimestamp()
-                .setDescription("Règles du discord de Zeltium.")
+                .setDescription("Règles du discord de Zelkiax.")
                 message.delete()
-                if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("Tu ne peux exécuter cette commande.");
             message.channel.sendEmbed(embed);
             break;
         case "broadcast":
@@ -252,8 +263,9 @@ bot.on("message", function(message) {
             member.guild.channels.find("name", "log").sendEmbed(embed);
             break;;
 
+
        case "twitter":
-       message.reply('Voici le compte twitter de Zeltium: https://twitter.com/ZeltiumLeS');
+       message.reply('Voici le compte twitter de Zelkiax: https://twitter.com/zelkiax_');
        message.delete();
        break;
        
@@ -262,15 +274,44 @@ bot.on("message", function(message) {
        message.delete();
        break; 
 
-       case "Zeltium":
-       message.channel.sendMessage(zeltiumRandomMessage[Math.floor(Math.random() * zeltiumRandomMessage.length)]);
+       case "Zelkiax":
+       message.channel.sendMessage(zelkiaxRandomMessage[Math.floor(Math.random() * zelkiaxRandomMessage.length)]);
        message.delete();
        break;
 
-
             default:
-            message.channel.sendMessage("Commande invalide ^^ Fait **.help** pour voir toutes les commandes disponible !")
+            message.channel.sendMessage("Commande invalide ^^ Fait **z!help** pour voir toutes les commandes disponible !")
     }
 });
 
-bot.login('Mzc3MjEzNDAyOTA2MzYxODU2.DOJsIw.PfSm0gtYQp3mG5W3C4GGp3l3n9A');
+bot.on("message", function(message) {
+    if (message.author.equals(bot.user)) return;
+
+    var args = message.content.substring(EVERYONE.length).split(" ");
+
+    var args2 = message.content.split(" ").slice(1);
+    
+    var suffix = args2.join(" ");
+
+    switch (args[0].toLowerCase()) {
+/*        case suffix + " everyone":
+        message.channel.sendMessage(suffix)
+        message.delete();
+        if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.sendMessage("Tu ne peux exécuter cette commande.");
+        message.reply("Vous n'avez pas la permission de faire @everyone.")
+        break; */
+
+        case "everyone":
+        if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.sendMessage("Tu ne peux exécuter cette commande.");
+        message.reply("Vous n'avez pas la permission de faire @everyone.")
+        message.delete();
+        console.log(suffix)
+        break;
+
+        default:
+        message.channel.sendMessage("")
+    }
+
+});
+
+bot.login("Mzc4Mjk2NTYxMDYwMjgyMzY4.DOZghw.GyUph1A2qVD0aGHYBTmMKLquTG0");

@@ -205,7 +205,6 @@ bot.on("message", function(message) {
         case "kick":
             if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.sendMessage("Tu ne peux exécuter cette commande.");
             if(!modlog) return message.reply("Je ne trouve pas de channel log.");
-            if (reason.length < 1) return message.reply("Tu as oublié la raison.");
             if (message.mentions.users.size < 1) return message.reply("Tu as oublié de préciser qui je dois kick..")
             message.guild.member(user).kick();
 
@@ -224,7 +223,6 @@ bot.on("message", function(message) {
         case "ban":
             if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.sendMessage("Tu ne peux exécuter cette commande.");
             if(!modlog) return message.reply("Je ne trouve pas de channel log.");
-            if (reason.length < 1) return message.reply("Tu as oublié la raison.");
             if (message.mentions.users.size < 1) return message.reply("Tu as oublié de préciser qui je dois bannir..")
             message.guild.ban(user, 2);
 
